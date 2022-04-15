@@ -6,7 +6,7 @@
 <br>
 
 ## Content
-  1. [Techs](#Techs)
+  1. [Technologies](#Technologies)
   2. [User guide](#Guide)
   3. [Functionality](#Functionality)
   4. [Validation](#Validation)
@@ -15,7 +15,7 @@
 <br>
 <br>
 
-## <a name="Techs"></a> Techs
+## <a name="Technologies"></a> Technologies
   * Java
   * Hibernate
   * HQL for queries
