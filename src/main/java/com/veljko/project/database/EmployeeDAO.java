@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import java.util.List;
 
 import com.veljko.project.database.utils.HibernateUtil;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -23,7 +22,7 @@ public class EmployeeDAO {
             employees = session.createQuery("from Employee", Employee.class).list();
 
             tx.commit();
-        } catch (HibernateException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             HibernateUtil.close();
@@ -46,17 +45,14 @@ public class EmployeeDAO {
             JOptionPane.showMessageDialog(null, "Successfully created new employee, now go back to employees page.", "Information",
                     JOptionPane.INFORMATION_MESSAGE);
 
-        } catch (HibernateException e) {
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Employee with that ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
+
             if (tx != null) {
                 tx.rollback();
             }
 
-            if (e.hashCode() == 1062) {
-                JOptionPane.showMessageDialog(null, "Employee with that ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-
+            e.printStackTrace();
         } finally {
             HibernateUtil.close();
         }
@@ -83,7 +79,7 @@ public class EmployeeDAO {
 
             tx.commit();
 
-        } catch (HibernateException e) {
+        } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }
@@ -115,7 +111,7 @@ public class EmployeeDAO {
 
             tx.commit();
 
-        } catch (HibernateException e) {
+        } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }
@@ -160,7 +156,7 @@ public class EmployeeDAO {
             employees = session.createQuery("from Employee as employee where " + addQuery, Employee.class).list();
 
             tx.commit();
-        } catch (HibernateException e) {
+        } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }
@@ -186,7 +182,7 @@ public class EmployeeDAO {
 
             tx.commit();
 
-        } catch (HibernateException e) {
+        } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
             }

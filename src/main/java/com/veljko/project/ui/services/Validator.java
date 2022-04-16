@@ -40,7 +40,7 @@ public class Validator {
 
         for (JTextField field : textFields) {
             try {
-                int num = Integer.parseInt(field.getText());
+                Integer.parseInt(field.getText());
             } catch (NumberFormatException e) {
                 isValid = false;
                 String massage = "You must enter number in " + field.getName() + " (Whole number)";
