@@ -46,11 +46,11 @@ public class EmployeeDAO {
                     JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Employee with that ID already exists.", "Error", JOptionPane.ERROR_MESSAGE);
-
             if (tx != null) {
                 tx.rollback();
             }
+
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
             e.printStackTrace();
         } finally {
@@ -72,8 +72,6 @@ public class EmployeeDAO {
                 session.remove(employee);
                 JOptionPane.showMessageDialog(null, "Successfully deleted employee, now go back to employees page.", "Information",
                         JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Employee with that ID doesn't exist.", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
 
@@ -83,6 +81,8 @@ public class EmployeeDAO {
             if (tx != null) {
                 tx.rollback();
             }
+
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
             e.printStackTrace();
 
@@ -115,6 +115,9 @@ public class EmployeeDAO {
             if (tx != null) {
                 tx.rollback();
             }
+
+
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
             e.printStackTrace();
 
@@ -160,6 +163,11 @@ public class EmployeeDAO {
             if (tx != null) {
                 tx.rollback();
             }
+
+
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+
+
             e.printStackTrace();
         } finally {
             HibernateUtil.close();
@@ -186,6 +194,9 @@ public class EmployeeDAO {
             if (tx != null) {
                 tx.rollback();
             }
+
+
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
             e.printStackTrace();
 
