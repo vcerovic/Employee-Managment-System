@@ -8,12 +8,7 @@ import com.veljko.project.ui.services.Colors;
 import com.veljko.project.ui.services.Spacer;
 import com.veljko.project.ui.services.Validator;
 
-import javax.swing.BoxLayout;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -118,6 +113,8 @@ public class EmployeeSettingsPage extends JPanel {
                         addEmployee.setEnabled(false);
                         editEmployee.setEnabled(true);
                         deleteEmployee.setEnabled(true);
+                        ActionButton.changeButtonsState(new JButton[]{addEmployee, editEmployee, deleteEmployee});
+
                         nameField.setText(employee.getName());
                         addressField.setText(employee.getAddress());
                         ageField.setText(String.valueOf(employee.getAge()));
@@ -129,6 +126,7 @@ public class EmployeeSettingsPage extends JPanel {
                         addEmployee.setEnabled(true);
                         editEmployee.setEnabled(false);
                         deleteEmployee.setEnabled(false);
+                        ActionButton.changeButtonsState(new JButton[]{addEmployee, editEmployee, deleteEmployee});
                     }
                 } catch (NumberFormatException ignored) {
 
@@ -203,4 +201,5 @@ public class EmployeeSettingsPage extends JPanel {
             field.setText("");
         }
     }
+
 }
