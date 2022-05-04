@@ -28,7 +28,7 @@
 ## <a name="Guide"></a> User guide
 1. You need to execute a script for creating the database that is in the file `src/main/java/com/veljko/project/mysql/company.sql`
 2. Modify the database connection configuration to suit your settings. All settings can be found in the file `src/main/resources/hibernate.cfg.xml`. 
-3. Finally, you can start application by running `main()` method inside `src/main/java/com/veljko/project/App/` file.
+3. Finally, you can start application by running `main()` method inside `src/main/java/com/veljko/project/App.java` file.
 
 
 <br>
