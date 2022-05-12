@@ -8,12 +8,7 @@ import com.veljko.project.ui.services.Colors;
 import com.veljko.project.ui.services.Spacer;
 import com.veljko.project.ui.services.Validator;
 
-import javax.swing.BoxLayout;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -30,6 +25,9 @@ public class EmployeeSettingsPage extends JPanel {
     private JTextField ageField;
     private JTextField addressField;
     private JTextField salaryField;
+    private ActionButton addEmployee;
+    private ActionButton deleteEmployee;
+    private ActionButton editEmployee;
 
     public EmployeeSettingsPage() {
         this.setName("EmployeeSettingsPage");
@@ -112,6 +110,11 @@ public class EmployeeSettingsPage extends JPanel {
                     Employee employee = EmployeeDAO.getEmployeeById(num);
 
                     if (employee != null) {
+                        addEmployee.setEnabled(false);
+                        editEmployee.setEnabled(true);
+                        deleteEmployee.setEnabled(true);
+                        ActionButton.changeButtonsState(new JButton[]{addEmployee, editEmployee, deleteEmployee});
+
                         nameField.setText(employee.getName());
                         addressField.setText(employee.getAddress());
                         ageField.setText(String.valueOf(employee.getAge()));
@@ -119,6 +122,11 @@ public class EmployeeSettingsPage extends JPanel {
 
                         JOptionPane.showMessageDialog(null, "We found employee with that ID.", "Information",
                                 JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        addEmployee.setEnabled(true);
+                        editEmployee.setEnabled(false);
+                        deleteEmployee.setEnabled(false);
+                        ActionButton.changeButtonsState(new JButton[]{addEmployee, editEmployee, deleteEmployee});
                     }
                 } catch (NumberFormatException ignored) {
 
@@ -132,9 +140,9 @@ public class EmployeeSettingsPage extends JPanel {
         JPanel buttonsHolder = new JPanel();
         buttonsHolder.setLayout(new GridLayout(3, 1, 0, 45));
 
-        ActionButton addEmployee = new ActionButton("src/main/java/com/veljko/project/icons/add_employee.png", "add-employee");
-        ActionButton deleteEmployee = new ActionButton("src/main/java/com/veljko/project/icons/delete_employee.png", "delete-employee");
-        ActionButton editEmployee = new ActionButton("src/main/java/com/veljko/project/icons/edit_employee.png", "edit-employee");
+        addEmployee = new ActionButton("src/main/java/com/veljko/project/icons/add_employee.png", "add-employee");
+        deleteEmployee = new ActionButton("src/main/java/com/veljko/project/icons/delete_employee.png", "delete-employee");
+        editEmployee = new ActionButton("src/main/java/com/veljko/project/icons/edit_employee.png", "edit-employee");
 
         ActionButton[] buttons = {addEmployee, deleteEmployee, editEmployee};
 
@@ -193,4 +201,5 @@ public class EmployeeSettingsPage extends JPanel {
             field.setText("");
         }
     }
+
 }

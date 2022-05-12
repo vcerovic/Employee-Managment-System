@@ -32,15 +32,29 @@ public class ActionButton extends JButton {
         btn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                btn.setBackground(Colors.SECONDARY_COLOR.getColor());
+                if(btn.isEnabled()){
+                    btn.setBackground(Colors.SECONDARY_COLOR.getColor());
+                }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btn.setBackground(Colors.PRIMARY_COLOR.getColor());
+                if(btn.isEnabled()){
+                    btn.setBackground(Colors.PRIMARY_COLOR.getColor());
+                }
             }
         });
 
+    }
+
+    public static void changeButtonsState(JButton[] btns){
+        for(JButton btn : btns){
+            if(btn.isEnabled()){
+                btn.setBackground(Colors.PRIMARY_COLOR.getColor());
+            } else {
+                btn.setBackground(Colors.DISABLED_COLOR.getColor());
+            }
+        }
     }
 
     private void styleActionButton() {
@@ -49,5 +63,6 @@ public class ActionButton extends JButton {
         this.setBorder(new LineBorder(Color.WHITE, 0));
         this.setFocusable(false);
     }
+
 
 }
