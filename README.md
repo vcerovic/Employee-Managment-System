@@ -1,7 +1,7 @@
 <h1 align="center">Employee Management System</h1>
 
 
-![Employee Management System Banner](https://i.ibb.co/4N9S8NM/emp-home.png)
+![Employee Management System Banner](https://imgur.com/LMBJBGk.png)
 
 <br>
 
@@ -42,7 +42,7 @@
 
 <br>
 
-![All Employees Page](https://i.ibb.co/gvjcXPG/all-emp.gif)
+![All Employees Page](https://i.imgur.com/R7z5xfP.gif)
 
 <br>
 
@@ -50,7 +50,7 @@
 
 <br>
 
-![Manage Employees Page](https://i.ibb.co/dL3Grgy/manage-emp.gif)
+![Manage Employees Page](https://i.imgur.com/tPWrQsr.gif)
 
 <br>
 
@@ -59,7 +59,7 @@
 <br>
 
 
-![Filter Employees Page](https://i.ibb.co/VW8NBZx/filter-emp.gif)
+![Filter Employees Page](https://i.imgur.com/H70WN0Y.gif)
 
 <br>
 
